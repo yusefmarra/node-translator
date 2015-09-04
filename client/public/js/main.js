@@ -19,7 +19,7 @@ function randomWord(cb) {
     url: '/api/random',
     method: 'GET',
   }).done(function(data) {
-    console.log(data);
+    // console.log(data);
     return cb(null, data.random);
   }).fail(function(error) {
     return cb(error);

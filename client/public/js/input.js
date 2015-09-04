@@ -1,31 +1,35 @@
 $('#generateRandom').on('click', function(event) {
   event.preventDefault();
-  var random = randomWord(
+  randomWord(
     function(error, data){
       if (!error) {
-        // console.log(data);
-        return data.random;
+        $('#randomWord').text(data);
+        return data;
       } else {
         // console.log(error);
         return error;
       }
     });
-  $('#randomWord').text(random);
+
 });
 
 $('#submit').on('click', function(event) {
   event.preventDefault();
+  $('#translatedWord').empty();
+  $('#userWord').empty();
   var translated = translate(
-    randomWordDiv.text(),
+    $('#randomWord').text(),
     $('.lang-list').val(),
     function(error, data) {
       if (!error) {
+        $('#translatedWord').append(data);
+        $('#userWord').append($('#translation').val());
+        // console.log(data, $('#translation').val());
+        console.log(validate(data, $('#translation').val().toLowerCase()));
         return data;
       } else {
         return error;
       }
     });
-  var input = $('#translation').text();
-  console.log(translated);
   // validate(input, translated);
 });
