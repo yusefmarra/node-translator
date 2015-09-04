@@ -6,7 +6,7 @@ var Record = mongoose.model('records');
 var random = require('random-words');
 
 router.get('/api/random', function(req, res) {
-  var words = random(20);
+  words = random();
   res.json({
     random: words
   });
@@ -17,7 +17,7 @@ var request = {
   method: 'POST',
   contentType: 'application/x-www-form-urlencoded',
   data: {
-    client_id: 'galtrans',
+    client_id: 'g-translate',
     client_secret: process.env.client_secret,
     grant_type: 'client_credentials',
     scope: 'http://api.microsofttranslator.com/'
@@ -39,8 +39,9 @@ var request = {
 ajax(request);
 
 router.get('/', function(req, res) {
+  words = random();
   res.render('index', {
-    title: 'Node Translator'
+    title: 'Node Translator',
   });
 });
 

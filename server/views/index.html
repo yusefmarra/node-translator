@@ -7,24 +7,19 @@
   <div class="container">
     <div class="row row-centered">
       <h1 class="col-md-12">{{ title }}</h1>
+      <select class="lang-list">
+      </select>
+
       <form>
-        <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Select Language
-          <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="languages">
-          </ul>
-        </div>
         <div class="form-group col-md-6">
-          <label for="word">Enter </label>
-          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+          <h3 id="randomWord"></h3>
         </div>
         <div class="form-group col-md-4">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          <label for="translation">Your Translation</label>
+          <input type="text" class="form-control" id="translation" placeholder="word">
         </div>
-        <button type="submit" class="submit col-md-1 btn btn-default">Submit</button>
+        <button type="submit" id="submit" class="col-md-1 btn btn-default">Submit</button>
+        <button class="btn btn-success" id="generateRandom">Generate Word!</button>
       </form>
     </div>
   </div>
