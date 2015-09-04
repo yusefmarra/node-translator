@@ -3,6 +3,14 @@ var router = express.Router();
 var ajax = require('najax');
 var mongoose = require('mongoose');
 var Record = mongoose.model('records');
+var random = require('random-words');
+
+router.get('/api/random', function(req, res) {
+  var words = random(20);
+  res.json({
+    random: words
+  });
+});
 
 var request = {
   url: 'https://datamarket.accesscontrol.windows.net/v2/OAuth2-13',
