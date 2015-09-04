@@ -14,15 +14,15 @@ function createList(items, codes) {
   }
 }
 
-function randomWord() {
+function randomWord(cb) {
   $.ajax({
     url: '/api/random',
     method: 'GET',
   }).done(function(data) {
-    random = data.random;
-    console.log(random);
+    console.log(data);
+    return cb(null, data.random);
   }).fail(function(error) {
-    console.log(error.status);
+    return cb(error);
   });
 }
 
@@ -39,9 +39,11 @@ function translate(word, langTo, cb) {
     },
     jsonp: 'oncomplete',
   }).done(function(data){
+    // console.log(data);
     return cb(null, data);
   }).fail(function(error) {
     getToken();
+    return cb(error);
   });
 }
 
