@@ -6,6 +6,7 @@
 1. Client API calls to server and Microsoft Translator API
 1. Calls to random words API
 1. String comparison function
+1. Speech Stuff
 
 ### TODO
 
@@ -19,7 +20,6 @@
 
 ### Stretch
 1. Implement Angular
-1. Speech Stuff
 1. Progress chart or some kind of record visualization
 
 ### Super Stretch

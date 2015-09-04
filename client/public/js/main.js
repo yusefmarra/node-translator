@@ -124,9 +124,21 @@ function validate(apiWord, userWord) {
        }
    }
    // Step 7
-   if (d[n][m] <= 1) {
-       return true;
-     } else {
-         return false;
-   }
+   return d[n][m];
+}
+
+function speak(string, language) {
+  $.ajax({
+    url: 'http://api.microsofttranslator.com/V2/Ajax.svc/Speak',
+    data: {
+      appId: 'Bearer ' + token,
+      text: string,
+      language: language
+    }
+  }).done(function(data) {
+    $('form').append('<audio src='+data+'autoplay="true"></audio>');
+    console.log(data);
+  }).fail(function(error) {
+    console.log(error.status);
+  });
 }
