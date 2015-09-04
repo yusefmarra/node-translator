@@ -5,7 +5,6 @@ var codeArray = ["ar", "bs-Latn", "bg", "ca", "zh-CHS", "zh-CHT", "hr", "cs", "d
 $(window).on('load',function() {
   console.log('loaded');
   getToken();
-  randomWord();
   setTimeout(languages, 200);
 });
 
@@ -21,12 +20,13 @@ function randomWord() {
     method: 'GET',
   }).done(function(data) {
     random = data.random;
+    console.log(random);
   }).fail(function(error) {
     console.log(error.status);
   });
 }
 
-function translate(word, langTo) {
+function translate(word, langTo, cb) {
   $.ajax({
     url: 'http://api.microsofttranslator.com/V2/Ajax.svc/Translate',
     dataType: 'jsonp',
@@ -39,8 +39,7 @@ function translate(word, langTo) {
     },
     jsonp: 'oncomplete',
   }).done(function(data){
-    console.log(data);
-    //Boom!
+    return cb(null, data);
   }).fail(function(error) {
     getToken();
   });

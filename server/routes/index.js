@@ -6,7 +6,7 @@ var Record = mongoose.model('records');
 var random = require('random-words');
 
 router.get('/api/random', function(req, res) {
-  words = random(20);
+  words = random();
   res.json({
     random: words
   });
@@ -39,10 +39,9 @@ var request = {
 ajax(request);
 
 router.get('/', function(req, res) {
-  words = random(20);
+  words = random();
   res.render('index', {
     title: 'Node Translator',
-    random: words
   });
 });
 
