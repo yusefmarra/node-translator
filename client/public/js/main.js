@@ -2,10 +2,16 @@ var token, random, langs;
 var langCodes = '["ar", "bs-Latn", "bg", "ca", "zh-CHS", "zh-CHT", "hr", "cs", "da", "nl", "en", "et", "fi", "fr", "de", "el", "ht", "he", "hi", "mww", "hu", "id", "it", "ja", "tlh", "tlh-Qaak", "ko", "lv", "lt", "ms", "mt", "yua", "no", "otq", "fa", "pl", "pt", "ro", "ru", "sr-Cyrl", "sr-Latn", "sk", "sl", "es", "sv", "th", "tr", "uk", "ur", "vi", "cy"]';
 var codeArray = ["ar", "bs-Latn", "bg", "ca", "zh-CHS", "zh-CHT", "hr", "cs", "da", "nl", "en", "et", "fi", "fr", "de", "el", "ht", "he", "hi", "mww", "hu", "id", "it", "ja", "tlh", "tlh-Qaak", "ko", "lv", "lt", "ms", "mt", "yua", "no", "otq", "fa", "pl", "pt", "ro", "ru", "sr-Cyrl", "sr-Latn", "sk", "sl", "es", "sv", "th", "tr", "uk", "ur", "vi", "cy"];
 
+var name = '';
+
+
 $(window).on('load',function() {
   console.log('loaded');
   getToken();
   setTimeout(languages, 200);
+  $('#practiceForm').hide();
+  $('#challengeForm').hide();
+  $('#userForm').show();
 });
 
 function createList(items, codes) {

@@ -22,8 +22,17 @@ $('#submit').on('click', function(event) {
     $('.lang-list').val(),
     function(error, data) {
       if (!error) {
-        $('#translatedWord').append(data);
-        $('#userWord').append($('#translation').val());
+        if (validate(data, $('#translation').val().toLowerCase()) > 1) {
+          $('#translatedWord').append(data);
+          $('#userWord').append($('#translation').val());
+          $('#userWord').css('color', 'red');
+        } else {
+          $('#translatedWord').append(data);
+          $('#userWord').append($('#translation').val());
+          $('#userWord').css('color', 'green');
+        }
+        $('#translation').val('');
+
         // console.log(data, $('#translation').val());
         console.log(validate(data, $('#translation').val().toLowerCase()));
         return data;
