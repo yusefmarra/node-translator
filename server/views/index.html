@@ -1,31 +1,38 @@
 {% extends 'layout.html' %}
-
 {% block title %}{% endblock %}
-
 {% block content %}
-
-  <div class="container">
-    <div class="row row-centered">
-      <h1 class="col-md-12">{{ title }}</h1>
-      <select class="lang-list">
-      </select>
-
-      <button class="btn btn-primary" type="button" id="showPractice" name="button">Practice</button>
-      <button class="btn btn-primary" type="button" id="showChallenge" name="button">Challenge</button>
-      <button class="btn btn-primary" type="button" id="showRecords" name="button">Records</button>
-
-      <div class="" id="recordDiv">
-
+    <header class="intro-header">
+            <div class="row">
+                    <div class="site-heading">
+                        <h1>Translator</h1>                      <h3>PRACTICE TRANSLATION</h3>
+                    </div>
+            </div>
+    </header>
+    <div class="container">
+      <div class="row row-centered">
+       <!-- Form For inputing username, is hidden and set to uneditable after submission -->
+      <div class="form-group col-md-6 col-md-offset-3" id="userForm">
+        <h2>Please Enter a Name to Begin<h2>
+        <form id="userForm">
+<!--           <label for="userName">Your Name</label>
+ -->          <input type="text" class="form-control" id="userName" placeholder="Name">
+          <button type="submit" id="setName" class="btn btn-primary btn-block" name="button">Set</button>
+        </form>
       </div>
-
-
-      <!-- Form For inputing username, is hidden and set to uneditable after submission -->
-      <form id="userForm">
-        <label for="userName">Your Name</label>
-        <input type="text" class="form-control" id="userName" placeholder="Name">
-        <button type="submit" id="setName" class="btn btn-primary" name="button">Set</button>
-      </form>
-
+      <div class="form-group col-md-10 col-md-offset-1 btn-group inline" id="userForm">
+        <div class='col-md-4'>
+        <button class="btn btn-primary btn btn-block col-md-4" type="button" id="showPractice" name="button">Practice</button>
+        </div>
+        <div class='col-md-4'>
+        <button class="btn btn-primary btn btn-block" type="button" id="showChallenge" name="button">Challenge</button>
+        </div>
+        <div class='col-md-4'>
+        <button class="btn btn-primary btn-block" type="button" id="showRecords" name="button">Records</button>
+        </div>
+      </div>
+      <select class="lang-list" id="lang-list"></select>
+        <div class="" id="recordDiv">
+      </div>
       <!-- Practice Form, Results are simply displayed on the page, not stored to the database -->
       <form id='practiceForm'>
         <div class="form-group col-md-6">
@@ -36,9 +43,8 @@
           <input type="text" class="form-control" id="translation" placeholder="word">
         </div>
         <button type="submit" id="submit" class="col-md-1 btn btn-default">Submit</button>
-        <button class="btn btn-success" id="generateRandom">Generate Word!</button>
+        <button class="btn btn-primary" id="generateRandom">Generate Word!</button>
       </form>
-
       <!-- Challenge Form, Results from this will be stored in the database along with the username set above -->
       <form id='challengeForm'>
         <div class="form-group col-md-6">
@@ -51,22 +57,17 @@
         <button type="submit" id="challengeSubmit" class="col-md-1 btn btn-default">Submit</button>
         <button class="btn btn-success" id="generateChallenge">Start Challenge!</button>
       </form>
-
     </div>
-
       <div class="row row-centered">
         <div class="col-md-4">
           <h3 id="translatedWord">
-
           </h3>
         </div>
         <div class="col-md-4">
           <h3 id="userWord">
-
           </h3>
         </div>
       </div>
-
   </div>
-
 {% endblock %}
+Add Comment

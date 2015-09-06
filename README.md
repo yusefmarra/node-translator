@@ -24,3 +24,14 @@
 
 ### Super Stretch
 1. Socket.io multiplayer translate race
+
+Frontend:
+-Nav bar with buttons and drop down
+-Clear random word divs
+-Display language in challenge
+-Display active correct/incorrect
+-Display challenge words inline and highlight current word
+---All challenge words are given class "challengeQuestion" and current word is given class "current".
+-Display records correctly
+-Display language in challenge
+-Button for speak function

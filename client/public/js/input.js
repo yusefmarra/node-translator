@@ -19,6 +19,7 @@ $('#setName').on('click', function(e) {
   $('#showPractice').show();
   $('#showChallenge').show();
   $('#showRecords').show();
+  $('#lang-list').show();
   // console.log(name);
 });
 

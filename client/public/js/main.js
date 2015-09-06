@@ -15,6 +15,7 @@ $(window).on('load',function() {
   $('#showPractice').hide();
   $('#showChallenge').hide();
   $('#showRecords').hide();
+  $('#lang-list').hide();
 });
 
 function createList(items, codes) {
