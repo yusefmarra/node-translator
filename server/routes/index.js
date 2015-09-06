@@ -6,9 +6,14 @@ var Record = mongoose.model('records');
 var random = require('random-words');
 
 router.get('/api/random', function(req, res) {
-  words = random();
   res.json({
-    random: words
+    random: random()
+  });
+});
+
+router.get('/api/random/:num', function(req, res) {
+  res.json({
+    random: random(Number(req.params.num)),
   });
 });
 

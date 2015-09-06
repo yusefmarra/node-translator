@@ -12,6 +12,9 @@ $(window).on('load',function() {
   $('#practiceForm').hide();
   $('#challengeForm').hide();
   $('#userForm').show();
+  $('#showPractice').hide();
+  $('#showChallenge').hide();
+  $('#showRecords').hide();
 });
 
 function createList(items, codes) {
@@ -20,16 +23,31 @@ function createList(items, codes) {
   }
 }
 
-function randomWord(cb) {
-  $.ajax({
-    url: '/api/random',
-    method: 'GET',
-  }).done(function(data) {
-    // console.log(data);
-    return cb(null, data.random);
-  }).fail(function(error) {
-    return cb(error);
-  });
+
+
+
+function randomWord(num, cb) {
+  if (!num) {
+    $.ajax({
+      url: '/api/random',
+      method: 'GET',
+    }).done(function(data) {
+      // console.log(data);
+      return cb(null, data.random);
+    }).fail(function(error) {
+      return cb(error);
+    });
+  } else {
+    $.ajax({
+      url: '/api/random/'+num,
+      method: 'GET',
+    }).done(function(data) {
+      // console.log(data);
+      return cb(null, data.random);
+    }).fail(function(error) {
+      return cb(error);
+    });
+  }
 }
 
 function translate(word, langTo, cb) {
