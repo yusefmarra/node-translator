@@ -13,10 +13,6 @@ $(window).on('load',function() {
   $('#challengeForm').hide();
   $('#userForm').show();
   $('table').hide();
-  // $('#showPractice').hide();
-  // $('#showChallenge').hide();
-  // $('#showRecords').hide();
-  // $('#lang-list').hide();
 });
 
 function createList(items, codes) {

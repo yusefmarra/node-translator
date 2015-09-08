@@ -27,6 +27,7 @@
 
       <br>
       <br>
+
       <div class="row row-centered">
        <!-- Form For inputing username, is hidden and set to uneditable after submission -->
       <div class="form-group col-md-6 col-md-offset-3" id="userForm">
@@ -39,30 +40,33 @@
         </form>
       </div>
 
-      <!-- <div class="form-group col-md-10 col-md-offset-1 btn-group inline" id="userForm">
-        <div class='col-md-4'>
-        <button class="btn btn-primary btn btn-block col-md-4" type="button" id="showPractice" name="button">Practice</button>
-        </div>
-        <div class='col-md-4'>
-        <button class="btn btn-primary btn btn-block" type="button" id="showChallenge" name="button">Challenge</button>
-        </div>
-        <div class='col-md-4'>
-        <button class="btn btn-primary btn-block" type="button" id="showRecords" name="button">Records</button>
-        </div>
-      </div> -->
-<!--       <select class="lang-list" id="lang-list"></select>
- -->        <div class="" id="recordDiv">
-      </div>
-
       <!-- Practice Form, Results are simply displayed on the page, not stored to the database -->
       <div class="container">
         <div class="row">
           <div id="practiceForm" class="col-md-6 col-md-offset-3">
-            <h3 id="randomWord"></h3><button class="btn btn-primary" id="generateRandom">Generate Word!</button>
+
+            <button class="btn btn-primary btn-lg btn-block" id="generateRandom">Generate Word!</button>
+
+            <br>
+
+            <h3 id="randomWord"></h3>
+
+            <div class="row row-centered">
+              <div class="col-md-6">
+                <h3 id="translatedWord"></h3>
+              </div>
+              <div class="col-md-6">
+                <h3 id="userWord"></h3>
+              </div>
+            </div>
+
+            <br>
+            <br>
+
             <form id='practiceThing'>
               <div>
-                <label for="translation">Your Translation</label>
-                <div class="input-group">
+<!--                 <label for="translation">Your Translation</label>
+ -->                <div class="input-group">
                   <input type="text" class="form-control" id="translation" placeholder="Your Translation...">
                   <span class="input-group-btn">
                     <button class="btn btn-default" id="submit" type="button">Submit</button>
@@ -70,15 +74,16 @@
                 </div>
               </div>
             </form>
-
-
           </div>
         </div>
       </div>
+
       <!-- Challenge Form, Results from this will be stored in the database along with the username set above -->
       <div id="randomChallenge"></div>
+
       <br>
       <br>
+
       <form id='challengeForm'>
         <div class="form-group col-md-4">
           <label for="chalTranslation">Your Translation</label>
@@ -87,20 +92,9 @@
         <button type="submit" id="challengeSubmit" class="col-md-1 btn btn-default">Submit</button>
         <button class="btn btn-success" id="generateChallenge">Start Challenge!</button>
       </form>
-    </div>
-      <div class="row row-centered">
-        <div class="col-md-4">
-          <h3 id="translatedWord">
-          </h3>
-        </div>
-        <div class="col-md-4">
-          <h3 id="userWord">
-          </h3>
-        </div>
-      </div>
   </div>
 
-  <div id="recordDiv">
+  <div id="recordDiv" class='record-div'>
     <table class="table table-striped records">
         <thead>
           <tr>

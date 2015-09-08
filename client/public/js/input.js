@@ -16,11 +16,6 @@ $('#setName').on('click', function(e) {
   e.preventDefault();
   name = $('#userName').val();
   $('#userForm').hide();
-  // $('#showPractice').show();
-  // $('#showChallenge').show();
-  // $('#showRecords').show();
-  // $('#lang-list').show();
-  // console.log(name);
   $('#practiceForm').show();
 
 });
@@ -29,19 +24,22 @@ $('#showPractice').on('click', function(e) {
   e.preventDefault();
   $('#practiceForm').show();
   $('#challengeForm').hide();
-  $('#recordDiv').empty();
+  $('#recordDiv').hide();
 });
 
 $('#showChallenge').on('click', function(e) {
   e.preventDefault();
   $('#challengeForm').show();
   $('#practiceForm').hide();
-  $('#recordDiv').empty();
+  $('#recordDiv').hide();
 });
 
 $('#showRecords').on('click', function(e) {
+  $('#recordDiv').show();
   $('tbody').empty();
   $('table').show();
+  $('#practiceForm').hide();
+  $('#challengeForm').hide();
   e.preventDefault();
   $.ajax({
     url: '/api/records',
@@ -50,8 +48,8 @@ $('#showRecords').on('click', function(e) {
       name: name
     }
   }).done(function(data) {
-    for (var i = 0; i < data.length; i++) {
-      $('#recordDiv tbody').append('<tr><td>'+data[i].name.toUpperCase()+'</td><td>'+data[i].langFrom.toUpperCase()+'</td><td>'+data[i].langTo.toUpperCase()+'</td><td>'+data[i].correct+'</td><td>'+data[i].incorrect+'</td><td>'+(data[i].correct/(data[i].incorrect+data[i].correct))+'%</td></tr>'
+    for (var i = 0; i < data.records.length; i++) {
+      $('#recordDiv tbody').append('<tr><td>'+data.records[i].name.toUpperCase()+'</td><td>'+data.records[i].langFrom.toUpperCase()+'</td><td>'+data.records[i].langTo.toUpperCase()+'</td><td>'+data.records[i].correct+'</td><td>'+data.records[i].incorrect+'</td><td>'+(data.records[i].correct/(data.records[i].incorrect+data.records[i].correct)*100)+'%</td></tr>'
       );
     }
     console.log(data);
@@ -120,6 +118,7 @@ $('#submit').on('click', function(event) {
 });
 
 $('#generateChallenge').on('click', function(e) {
+  $('nav').hide();
   e.preventDefault();
   randomWord(20, function(error, data) {
     if (!error) {
