@@ -1,6 +1,7 @@
 a {
   color: #337ab7;
 }
+
 h1 {
   text-align: center;
   font-size: 80px;
@@ -51,11 +52,11 @@ h1, h2, h3, h4, h5, h6 {
 
 #randomChallenge {
   /*margin-left: -125px;*/
-  width: 95%;
+ width: 100%;
 }
 
 .challengeQuestion {
-  display: inline;
+  display: inline-block;
   padding: 5px;
   border: solid 1px black;
   margin: 2px;
