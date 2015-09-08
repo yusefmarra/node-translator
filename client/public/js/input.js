@@ -164,6 +164,7 @@ $('#challengeThing').on('submit', function(e) {
   $('#chalTranslation').val('');
 });
 
+
 $('#challengeSubmit').on('click', function(e) {
   e.preventDefault();
   var userInput = $('#chalTranslation').val();
@@ -190,4 +191,9 @@ $('#challengeSubmit').on('click', function(e) {
     }
   });
   $('#chalTranslation').val('');
+});
+
+$('#lang-list').on('change', function(e) {
+  var lang = $("#lang-list option:selected").text();
+  $('#info').html('<h3> USER: '+name.toUpperCase()+'</h3> <h3>LANGUAGE: '+lang.toUpperCase()+'</h3>');
 });
