@@ -92,7 +92,7 @@ $('#generateChallenge').on('click', function(e) {
     if (!error) {
       //do something with my array of random words
       $('#generateChallenge').hide();
-      $('.lang-list').hide();
+      $('#lang-list').hide();
       startChallenge(data);
       // console.log(data);
     } else {
@@ -107,7 +107,7 @@ $('#challengeSubmit').on('click', function(e) {
   $('#showChallenge').hide();
   var userInput = $('#chalTranslation').val();
   var currentWord = getCurrentWord();
-  translate(currentWord, $('.lang-list').val(), function(error, data) {
+  translate(currentWord, $('#lang-list').val(), function(error, data) {
     if (!error) {
       // console.log(data);
       if (validate(data, userInput) > 1) {
@@ -116,7 +116,7 @@ $('#challengeSubmit').on('click', function(e) {
         nextChallenge(false);
       } else {
         $('#'+currentQuestion).append(userInput).css('color', 'green');
-        // speak(currentWord, $('.lang-list').val());
+        // speak(currentWord, $('#lang-list').val());
         nextChallenge(true);
       }
     } else {
