@@ -19,7 +19,7 @@ $('#setName').on('click', function(e) {
   $('#showPractice').show();
   $('#showChallenge').show();
   $('#showRecords').show();
-  $('#lang-list').show();
+  // $('#lang-list').show();
   // console.log(name);
 });
 
@@ -62,7 +62,7 @@ $('#submit').on('click', function(event) {
   $('#userWord').empty();
   var translated = translate(
     $('#randomWord').text(),
-    $('.lang-list').val(),
+    $('#lang-list').val(),
     function(error, data) {
       if (!error) {
         if (validate(data, $('#translation').val().toLowerCase()) > 1) {
