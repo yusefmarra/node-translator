@@ -124,7 +124,7 @@ $('#generateChallenge').on('click', function(e) {
     if (!error) {
       //do something with my array of random words
       $('#generateChallenge').hide();
-      $('#lang-list').hide();
+      // $('#lang-list').hide();
       startChallenge(data);
       // console.log(data);
     } else {
@@ -153,8 +153,8 @@ $('#challengeSubmit').on('click', function(e) {
         $('#translatedWord').append(data).css('color', 'green');
         $('#userWord').append(userInput).css('color', 'green');
         speak(currentWord, 'en');
-        $('#'+currentQuestion).append(userInput).css('color', 'green');
-        // speak(currentWord, $('#lang-list').val());
+        // $('#'+currentQuestion).append(userInput).css('color', 'green');
+        speak(currentWord, $('#lang-list').val());
         nextChallenge(true);
       }
     } else {

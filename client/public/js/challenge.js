@@ -11,8 +11,8 @@ function startChallenge(arr) {
         $('#randomChallenge').append($('<div>').text(arr[i]).addClass('challengeQuestion').attr('id', i));
     }
   }
-  $('#showPractice').hide();
-  $('#showChallenge').hide();
+  // $('#showPractice').hide();
+  // $('#showChallenge').hide();
   questArray = arr;
 }
 
