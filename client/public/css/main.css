@@ -59,6 +59,7 @@ nav {
   padding: 5px;
   border: solid 1px black;
   margin: 2px;
+  font-size: .8em;
 }
 
 .current {
