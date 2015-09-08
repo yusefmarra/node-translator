@@ -92,7 +92,7 @@ $('#generateChallenge').on('click', function(e) {
     if (!error) {
       //do something with my array of random words
       $('#generateChallenge').hide();
-      $('.lang-list').hide();
+      $('#lang-list').hide();
       startChallenge(data);
       // console.log(data);
     } else {
@@ -103,20 +103,24 @@ $('#generateChallenge').on('click', function(e) {
 
 $('#challengeSubmit').on('click', function(e) {
   e.preventDefault();
-  $('#showPractice').hide();
-  $('#showChallenge').hide();
   var userInput = $('#chalTranslation').val();
   var currentWord = getCurrentWord();
-  translate(currentWord, $('.lang-list').val(), function(error, data) {
+  translate(currentWord, $('#lang-list').val(), function(error, data) {
     if (!error) {
       // console.log(data);
       if (validate(data, userInput) > 1) {
-        $('#'+currentQuestion).append('Your answer: "' + userInput + '" Correct Answer: ' + data).css('color', 'red');
-        // speak(currentWord, $('.lang-list').val());
+        $('#userWord').empty();
+        $('#translatedWord').empty();
+        $('#userWord').append(userInput).css('color', 'red');
+        $('#translatedWord').append(data).css('color', 'green');
+        speak(currentWord, 'en');
         nextChallenge(false);
       } else {
-        $('#'+currentQuestion).append(userInput).css('color', 'green');
-        // speak(currentWord, $('.lang-list').val());
+        $('#userWord').empty();
+        $('#translatedWord').empty();
+        $('#translatedWord').append(data).css('color', 'green');
+        $('#userWord').append(userInput).css('color', 'green');
+        speak(currentWord, 'en');
         nextChallenge(true);
       }
     } else {

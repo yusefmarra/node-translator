@@ -49,3 +49,25 @@ nav {
   background-color: black;
   color: orange;
 }
+
+#randomChallenge {
+  margin-left: -125px;
+}
+
+.challengeQuestion {
+  display: inline;
+  padding: 5px;
+  border: solid 1px black;
+  margin: 2px;
+}
+
+.current {
+  font-size: 2em;
+}
+
+.correct {
+  color: green;
+}
+.incorrect {
+  color: red;
+}

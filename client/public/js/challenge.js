@@ -6,7 +6,7 @@ var incorrect = 0;
 function startChallenge(arr) {
   for (var i = 0; i < arr.length; i++) {
     if (currentQuestion === i) {
-        $('#randomChallenge').append($('<div>').text(arr[i]+" <-- ").addClass('challengeQuestion current').attr('id', i));
+        $('#randomChallenge').append($('<div>').text(arr[i]).addClass('challengeQuestion current').attr('id', i));
     } else {
         $('#randomChallenge').append($('<div>').text(arr[i]).addClass('challengeQuestion').attr('id', i));
     }
@@ -25,15 +25,17 @@ function nextChallenge(bool) {
   //true means they got it correct, false means incorrect
   if (bool) {
     correct++;
+    $('#'+currentQuestion).addClass('correct');
   } else {
     incorrect++;
+    $('#'+currentQuestion).addClass('incorrect');
   }
   if (currentQuestion >= 19) {
     //Challenge is over, call an end function
     endChallenge();
   } else {
     currentQuestion++;
-    $('#'+currentQuestion).append(" <-- ").addClass('current');
+    $('#'+currentQuestion).addClass('current');
     $('#'+(currentQuestion-1)).removeClass('current');
   }
 }
