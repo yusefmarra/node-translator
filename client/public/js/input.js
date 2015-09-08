@@ -38,7 +38,8 @@ $('#showChallenge').on('click', function(e) {
 });
 
 $('#showRecords').on('click', function(e) {
-  $('#recordDiv').empty();
+  $('tbody').empty();
+  $('table').show();
   e.preventDefault();
   $.ajax({
     url: '/api/records',
@@ -48,7 +49,8 @@ $('#showRecords').on('click', function(e) {
     }
   }).done(function(data) {
     for (var i = 0; i < data.length; i++) {
-      $('#recordDiv').append($('<div>').text(data[i]));
+      $('#recordDiv tbody').append('<tr><td>'+data[i].name.toUpperCase()+'</td><td>'+data[i].langFrom.toUpperCase()+'</td><td>'+data[i].langTo.toUpperCase()+'</td><td>'+data[i].correct+'</td><td>'+data[i].incorrect+'</td><td>'+(data[i].correct/(data[i].incorrect+data[i].correct))+'%</td></tr>'
+      );
     }
     console.log(data);
   }).fail(function(error) {

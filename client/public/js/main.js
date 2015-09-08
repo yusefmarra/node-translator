@@ -12,6 +12,7 @@ $(window).on('load',function() {
   $('#practiceForm').hide();
   $('#challengeForm').hide();
   $('#userForm').show();
+  $('table').hide();
   // $('#showPractice').hide();
   // $('#showChallenge').hide();
   // $('#showRecords').hide();
@@ -112,15 +113,6 @@ function languages() {
   });
 }
 
-function compare(userWord, correctWord) {
-  if (userWord === correctWord) {
-    console.log('Correct!');
-    // push correct++
-  } else {
-    console.log('Incorrect');
-    // push incorect++
-  }
-}
 function validate(apiWord, userWord) {
   var d = []; //2d matrix
   var n = apiWord.length;

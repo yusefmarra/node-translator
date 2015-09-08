@@ -32,8 +32,6 @@
 4. Clear random word divs
 5. Display Challenge words inline and higlight/enlarge current word
 ---All challenge words are given class "challengeQuestion" and current word is given class "current".
-6. Display active correct/incorrect
-7. Display language in challenge
 8. Display records correctly
 9.  Add button for speak function
 10. Add approriate conditionals to allow/disallow functionality
