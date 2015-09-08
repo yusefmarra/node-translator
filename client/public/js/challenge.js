@@ -60,12 +60,10 @@ function endChallenge() {
   }).fail(function(error) {
     console.log(error);
   });
-  $('#showPractice').show();
-  $('#showChallenge').show();
   $('#randomChallenge').empty();
   $('#generateChallenge').show();
-  $('#lang-list').show();
-  $('#challengeForm').hide();
+  $('nav').show();
+  // $('#challengeForm').hide();
   currentQuestion = 0;
   questArray = [];
   correct = 0;
