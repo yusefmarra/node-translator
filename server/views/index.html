@@ -3,15 +3,36 @@
 {% block content %}
     <header class="intro-header">
             <div class="row">
+                    <br>
+                    <br>
                     <div class="site-heading">
-                        <h1>Translator</h1>                      <h3>PRACTICE TRANSLATION</h3>
+                        <h1>Translator</h1>
+                        <h3>PRACTICE TRANSLATION</h3>
                     </div>
             </div>
     </header>
-    <div class="container">
+ <div class="container">
+     <!-- Nav Bar With options -->
+    <nav>
+      <ul class="nav nav-pills nav-justified">
+        <li><a href="#">Practice</a></li>
+        <li><a href="#">Challenge</a></li>
+        <li><a href="#">Records</a></li>
+       <!--  <li> <select class="lang-list" id="lang-list"></select></li> -->
+        <li class="dropdown">
+    <!--     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        Select Language <span class="caret"></span>
+          </a> -->
+         <!-- <ul class="dropdown-menu" class="lang-list" id="lang-list"></ul> -->
+         <select class='form-control'  id='lang-list'></select>
+      </li>
+    </ul>
+    </nav>
+
       <div class="row row-centered">
        <!-- Form For inputing username, is hidden and set to uneditable after submission -->
       <div class="form-group col-md-6 col-md-offset-3" id="userForm">
+        <br>
         <h2>Please Enter a Name to Begin<h2>
         <form id="userForm">
 <!--           <label for="userName">Your Name</label>
@@ -19,6 +40,7 @@
           <button type="submit" id="setName" class="btn btn-primary btn-block" name="button">Set</button>
         </form>
       </div>
+
       <div class="form-group col-md-10 col-md-offset-1 btn-group inline" id="userForm">
         <div class='col-md-4'>
         <button class="btn btn-primary btn btn-block col-md-4" type="button" id="showPractice" name="button">Practice</button>
@@ -30,9 +52,10 @@
         <button class="btn btn-primary btn-block" type="button" id="showRecords" name="button">Records</button>
         </div>
       </div>
-      <select class="lang-list" id="lang-list"></select>
-        <div class="" id="recordDiv">
+<!--       <select class="lang-list" id="lang-list"></select>
+ -->        <div class="" id="recordDiv">
       </div>
+
       <!-- Practice Form, Results are simply displayed on the page, not stored to the database -->
       <form id='practiceForm'>
         <div class="form-group col-md-6">
@@ -45,6 +68,7 @@
         <button type="submit" id="submit" class="col-md-1 btn btn-default">Submit</button>
         <button class="btn btn-primary" id="generateRandom">Generate Word!</button>
       </form>
+
       <!-- Challenge Form, Results from this will be stored in the database along with the username set above -->
       <form id='challengeForm'>
         <div class="form-group col-md-6">

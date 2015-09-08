@@ -15,17 +15,15 @@ $(window).on('load',function() {
   $('#showPractice').hide();
   $('#showChallenge').hide();
   $('#showRecords').hide();
-  $('#lang-list').hide();
+  // $('#lang-list').hide();
 });
 
 function createList(items, codes) {
   for (var i = 0; i < items.length; i++) {
-    $('.lang-list').append('<option value="' + codes[i] + '">' + items[i] + '</option>');
+    $('#lang-list').append('<option value="' + codes[i] + '">' + items[i] + '</option>');
   }
+  $('lang-list').selectmenu();
 }
-
-
-
 
 function randomWord(num, cb) {
   if (!num) {
