@@ -51,7 +51,7 @@ function endChallenge() {
     data: {
       name: name,
       langFrom: 'en',
-      langTo: $('.lang-list').val(),
+      langTo: $('#lang-list').val(),
       correct: Number(correct),
       incorrect: Number(incorrect)
     }
@@ -64,7 +64,7 @@ function endChallenge() {
   $('#showChallenge').show();
   $('#randomChallenge').empty();
   $('#generateChallenge').show();
-  $('.lang-list').show();
+  $('#lang-list').show();
   $('#challengeForm').hide();
   currentQuestion = 0;
   questArray = [];
