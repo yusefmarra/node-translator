@@ -64,34 +64,49 @@
             <br>
 
             <form id='practiceThing'>
-              <div>
-<!--                 <label for="translation">Your Translation</label>
- -->                <div class="input-group">
+
+                <div class="input-group">
                   <input type="text" class="form-control" id="translation" placeholder="Your Translation...">
                   <span class="input-group-btn">
                     <button class="btn btn-default" id="submit" type="button">Submit</button>
                   </span>
                 </div>
-              </div>
+
             </form>
           </div>
         </div>
       </div>
 
       <!-- Challenge Form, Results from this will be stored in the database along with the username set above -->
-      <div id="randomChallenge"></div>
-
+      <div class='row'>
+        <div class='col-md-12' id="randomChallenge"></div>
+      </div>
       <br>
-      <br>
-
-      <form id='challengeForm'>
-        <div class="form-group col-md-4">
-          <label for="chalTranslation">Your Translation</label>
-          <input type="text" class="form-control" id="chalTranslation" placeholder="word">
+      <div class="row row-centered">
+        <div class="col-md-6">
+          <h3 id="translatedWordChal"></h3>
         </div>
-        <button type="submit" id="challengeSubmit" class="col-md-1 btn btn-default">Submit</button>
-        <button class="btn btn-success" id="generateChallenge">Start Challenge!</button>
+        <div class="col-md-6">
+          <h3 id="userWordChal"></h3>
+        </div>
+      </div>
+
+      <br>
+      <div id='challengeForm'>
+
+      <button id="generateChallenge" class="btn btn-success btn-lg btn-block"> Start Challenge! </button>
+
+      <form id='challengeThing'>
+        <br>
+        <div class="input-group">
+          <input type="text" class="form-control" id="chalTranslation" placeholder="Your Translation...">
+          <span class="input-group-btn">
+            <button class="btn btn-default" id="challengeSubmit" type="button">Submit</button>
+          </span>
+        </div>
+
       </form>
+    </div>
   </div>
 
   <div id="recordDiv" class='record-div'>

@@ -133,7 +133,7 @@ $('#generateChallenge').on('click', function(e) {
   });
 });
 
-$('#challengeSubmit').on('click', function(e) {
+$('#challengeThing').on('submit', function(e) {
   e.preventDefault();
   var userInput = $('#chalTranslation').val();
   var currentWord = getCurrentWord();
@@ -141,20 +141,48 @@ $('#challengeSubmit').on('click', function(e) {
     if (!error) {
       // console.log(data);
       if (validate(data, userInput) > 1) {
-        $('#userWord').empty();
-        $('#translatedWord').empty();
-        $('#userWord').append(userInput).css('color', 'red');
-        $('#translatedWord').append(data).css('color', 'green');
+        $('#userWordChal').empty();
+        $('#translatedWordChal').empty();
+        $('#userWordChal').append(userInput).css('color', 'red');
+        $('#translatedWordChal').append(data).css('color', 'green');
         speak(currentWord, 'en');
         nextChallenge(false);
       } else {
-        $('#userWord').empty();
-        $('#translatedWord').empty();
-        $('#translatedWord').append(data).css('color', 'green');
-        $('#userWord').append(userInput).css('color', 'green');
+        $('#userWordChal').empty();
+        $('#translatedWordChal').empty();
+        $('#translatedWordChal').append(data).css('color', 'green');
+        $('#userWordChal').append(userInput).css('color', 'green');
         speak(currentWord, 'en');
         // $('#'+currentQuestion).append(userInput).css('color', 'green');
         speak(currentWord, $('#lang-list').val());
+        nextChallenge(true);
+      }
+    } else {
+      console.log(error);
+    }
+  });
+  $('#chalTranslation').val('');
+});
+
+$('#challengeSubmit').on('click', function(e) {
+  e.preventDefault();
+  var userInput = $('#chalTranslation').val();
+  var currentWord = getCurrentWord();
+  translate(currentWord, $('#lang-list').val(), function(error, data) {
+    if (!error) {
+      if (validate(data, userInput) > 1) {
+        $('#userWordChal').empty();
+        $('#translatedWordChal').empty();
+        $('#userWordChal').append(userInput).css('color', 'red');
+        $('#translatedWordChal').append(data).css('color', 'green');
+        speak(currentWord, 'en');
+        nextChallenge(false);
+      } else {
+        $('#userWordChal').empty();
+        $('#translatedWordChal').empty();
+        $('#translatedWordChal').append(data).css('color', 'green');
+        $('#userWordChal').append(userInput).css('color', 'green');
+        speak(currentWord, 'en');
         nextChallenge(true);
       }
     } else {
