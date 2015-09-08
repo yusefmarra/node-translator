@@ -26,13 +26,7 @@
 1. Socket.io multiplayer translate race
 
 
-<!-- 1. Fix drop down on nav bar
-2. Add functionality to nav bar
-3. Delete buttons that were replaced by nav bar -->
 4. Clear random word divs
-5. Display Challenge words inline and higlight/enlarge current word
----All challenge words are given class "challengeQuestion" and current word is given class "current".
-8. Display records correctly
 9.  Add button for speak function
 10. Add approriate conditionals to allow/disallow functionality
 11. Alter Hide/Show

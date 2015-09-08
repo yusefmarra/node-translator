@@ -1,5 +1,5 @@
 a {
-  color: navy;
+  color: #337ab7;
 }
 h1 {
   text-align: center;
@@ -13,7 +13,7 @@ h3 {
 }
 body {
     background-color: white;
-    color:navy;
+    color: #337ab7;
 }
 .submit {
   margin-top: 21px;
@@ -21,7 +21,7 @@ body {
 .container {
 /*  padding: 50px;
 */  font-family: 'Lora', 'Times New Roman', serif;
-  color: navy;
+  color: #337ab7;
   font-size: 20px;
 }
 p {
@@ -37,7 +37,8 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     height: 350px;
 /*    background-image: url('/img/hello3.png');
-*/  background-color: blue;
+*/  background-color: #337ab7;
+    color: white;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
