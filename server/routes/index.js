@@ -54,10 +54,17 @@ router.post('/api/records', function(req, res) {
   // console.log(req.body);
   if (req.body.name) {
     Record.find({name: req.body.name}, function(err, records) {
-      res.send(records);
+      if (records) {
+        res.statusCode = 200;
+        res.json({records: records, code: 200});
+      } else {
+        res.statusCode = 404;
+        res.json({message: "No records found for that name.", code: 404});
+      }
     });
   } else {
-    res.sendStatus(400);
+    res.statusCode = 400;
+    res.json({message: "Must provide a name", code: 400});
   }
 });
 
@@ -71,9 +78,11 @@ router.post('/api/records/add', function(req, res) {
               }).save(function(err, success) {
                 console.log(success);
               });
-    res.sendStatus(200);
+    res.statusCode = 200;
+    res.json({message: 'Record Successfully added', code: 200});
   } else {
-    res.sendStatus(400);
+    res.statusCode = 400;
+    res.json({message: 'Not all fields were given', code: 400});
   }
 });
 

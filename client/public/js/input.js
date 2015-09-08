@@ -16,11 +16,13 @@ $('#setName').on('click', function(e) {
   e.preventDefault();
   name = $('#userName').val();
   $('#userForm').hide();
-  $('#showPractice').show();
-  $('#showChallenge').show();
-  $('#showRecords').show();
+  // $('#showPractice').show();
+  // $('#showChallenge').show();
+  // $('#showRecords').show();
   // $('#lang-list').show();
   // console.log(name);
+  $('#practiceForm').show();
+
 });
 
 $('#showPractice').on('click', function(e) {
@@ -56,6 +58,35 @@ $('#showRecords').on('click', function(e) {
   }).fail(function(error) {
     console.log(error);
   });
+});
+
+$('#practiceThing').on('submit', function(e) {
+  e.preventDefault();
+  $('#translatedWord').empty();
+  $('#userWord').empty();
+  var translated = translate(
+    $('#randomWord').text(),
+    $('#lang-list').val(),
+    function(error, data) {
+      if (!error) {
+        if (validate(data, $('#translation').val().toLowerCase()) > 1) {
+          $('#translatedWord').append(data);
+          $('#userWord').append($('#translation').val());
+          $('#userWord').css('color', 'red');
+        } else {
+          $('#translatedWord').append(data);
+          $('#userWord').append($('#translation').val());
+          $('#userWord').css('color', 'green');
+        }
+        $('#translation').val('');
+
+        // console.log(data, $('#translation').val());
+        // console.log(validate(data, $('#translation').val().toLowerCase()));
+        return data;
+      } else {
+        return error;
+      }
+    });
 });
 
 $('#submit').on('click', function(event) {
