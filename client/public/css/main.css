@@ -44,10 +44,8 @@ h1, h2, h3, h4, h5, h6 {
 /*    margin-bottom: 2%;
 */}​
 
-nav {
-  width: 100%;
-  background-color: black;
-  color: orange;
+.table {
+ width: 200px;
 }
 
 #randomChallenge {
